@@ -23,12 +23,11 @@
   </style>
 <body>
   <div class="container">
-    <h1>Les binômes candidats</h1>
-    <p><em><a href="https://docs.google.com/a/github.com/spreadsheet/ccc?key=0Ai7ATUDecTlvdEJTb1k4bEVBMkR4Z2V5dXJaTXk3c3c&usp=drive_web#gid=0" target="_blank">spreadsheet</a></em><p>
-    <input id="fullTableFilter" type="text" placeholder="Filtrer.."></input>
+    
+      <input id="fullTableFilter" type="text" placeholder="Filtrer.."></input>
     <div id="fullTable"></div>
     
-    <p><em><a onClick='window.location="view-source:" + window.location.href'>View Source</a> // <a href="../docs/sheetsee-tables.html">View Documentation</a></em></p>
+   
 
     
 </div>
@@ -37,7 +36,7 @@
   <table>
     <tr><th class="tHeader">Canton</th><th class="tHeader">Binôme</th><th class="tHeader">Nuance politique</th><th class="tHeader">Image</th></tr>
       {{#rows}}
-        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{nuance}}</td><td>{{image}}</td></tr>
+        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{nuance}}</td></tr>
       {{/rows}}
   </table>
 </script>
@@ -51,11 +50,7 @@
   </table>
 </script>
 
-<script id="photogrid" type="text/html">
-  {{#rows}}
-    <div class=""><a href="{{photo-url}}" target="_blank"><img class="photo" src="{{photo-url}}"  alt="name"></a></div>
-  {{/rows}}
-</script>
+
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -65,7 +60,7 @@
 
   function showInfo(data) {
     var tableOptions = {"data": data
-    , "pagination": 10, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter"}
+    , "pagination": 50, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter"}
     Sheetsee.makeTable(tableOptions)
     Sheetsee.initiateTableFilter(tableOptions)
 
