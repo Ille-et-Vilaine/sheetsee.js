@@ -23,57 +23,21 @@
   </style>
 <body>
   <div class="container">
-    <h1>All Pennies</h1>
+    <h1>Les binômes candidats</h1>
     <p><em><a href="https://docs.google.com/a/github.com/spreadsheet/ccc?key=0Ai7ATUDecTlvdEJTb1k4bEVBMkR4Z2V5dXJaTXk3c3c&usp=drive_web#gid=0" target="_blank">spreadsheet</a></em><p>
-    <input id="fullTableFilter" type="text" placeholder="filter by.."></input>
+    <input id="fullTableFilter" type="text" placeholder="Filtrer.."></input>
     <div id="fullTable"></div>
-    <h1>California Pennies</h1>
-    <input id="calFilter" type="text" placeholder="filter by.."></input>
-    <div id="calTable"></div>
-    <h1>Pretty Pennies</h1>
-    <div id="photogrid"></div>
+    
     <p><em><a onClick='window.location="view-source:" + window.location.href'>View Source</a> // <a href="../docs/sheetsee-tables.html">View Documentation</a></em></p>
 
-    <footer>
-      <h4 id="getting-started">Getting Started</h4>
-      <ul>
-        <li><a href="../docs/about.html">About Sheetsee</a></li>
-        <li><a href="../docs/building.html">Building Sheetsee</a></li>
-        <li><a href="../docs/basics.html">Basics</a></li>
-      </ul>
-      <h4 id="ideas">Ideas</h4>
-      <ul>
-        <li><a href="../docs/fork-n-go.html">Fork-n-Go</a></li>
-        <li><a href="../docs/tips.html">Tips!</a></li>
-        <li><a href="../docs/custom-charts.html">Custom charts</a></li>
-      </ul>
-      <h4>Demos</h4>
-      <ul>
-        <li><a href="./demo-table.html">Table Demo</a></li>
-        <li><a href="./demo-map.html">Map Demo</a></li>
-        <li><a href="./demo-chart.html">Chart Demo</a></li>
-      </ul>
-      <h4 id="use">Use</h4>
-      <ul>
-        <li><a href="../docs/sheetsee-core.html">Sheetsee-core</a></li>
-        <li><a href="../docs/sheetsee-tables.html">Sheetsee-tables</a></li>
-        <li><a href="../docs/sheetsee-maps.html">Sheetsee-maps</a></li>
-        <li><a href="../docs/sheetsee-charts.html">Sheetsee-charts</a></li>
-      </ul>
-      <h4 id="use">Contact</h4>
-      <ul>
-        <li><a href="http://www.twitter.com/jllord">@jllord</a></li>
-        <li><a href="https://github.com/jlord/sheetsee.js/issues/new">File an issue</a></li>
-      </ul>
-      <h4><a class="home-link" href="http://jlord.github.io/sheetsee.js">Home Page</a></h4>
-    </footer>
+    
 </div>
 
 <script id="fullTable_template" type="text/html">
   <table>
-    <tr><th class="tHeader">City</th><th class="tHeader">Place Name</th><th class="tHeader">Year</th><th class="tHeader">Image</th></tr>
+    <tr><th class="tHeader">Canton</th><th class="tHeader">Binôme</th><th class="tHeader">Nuance politique</th><th class="tHeader">Image</th></tr>
       {{#rows}}
-        <tr><td>{{city}}</td><td>{{placename}}</td><td>{{year}}</td><td>{{image}}</td></tr>
+        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{nuance}}</td><td>{{image}}</td></tr>
       {{/rows}}
   </table>
 </script>
