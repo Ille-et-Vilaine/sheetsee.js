@@ -61,8 +61,21 @@
   })
 
   function showInfo(data) {
+    
+     var gData = separateTags(data)
+      drawTags(gData)
+      cleanDates(gData)
+      pageTitle(gData)
+      Sheetsee.makeTable(gData.reverse(), "#articleTable")
+      Sheetsee.initiateTableFilter(gData, "#articleSearch", "#articleTable")
+
+      $(document).on("click", ".tag", function(event){
+        var tag = $(event.target).text()
+        var tagFilter = getTagMatches(gData, tag)
+        Sheetsee.makeTable(tagFilter.reverse(), "#articleTable")
+    
     var tableOptions = {"data": data
-    , "pagination": 18, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter"}
+    , "pagination": 18, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter", }
     Sheetsee.makeTable(tableOptions)
     Sheetsee.initiateTableFilter(tableOptions)
 
