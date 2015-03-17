@@ -27,10 +27,8 @@
       <input id="fullTableFilter" type="text" placeholder="Rechercher par canton, nom ou nuance politique..."></input>
     <div id="fullTable"></div>
     
-   
-
-    
 </div>
+ 
 
 <script id="fullTable_template" type="text/html">
   <table>
@@ -45,7 +43,7 @@
   <table>
     <tr><th class="tHeader">canton</th><th class="tHeader">binome</th><th class="tHeader">nuance</th></tr>
       {{#rows}}
-        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{nuance}}</td></tr>
+        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{#nuance}}<a href="#">{{nuance}}</a> {{/nuance}}</td></tr>
       {{/rows}}
   </table>
 </script>
