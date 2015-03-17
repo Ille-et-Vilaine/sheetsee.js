@@ -16,7 +16,7 @@
     #Pagination a {cursor: pointer;}
     .no-pag {color: #acacac; border: none;}
     .no-pag:hover {color: #acacac;}
-    input {border: 1px solid #333;margin: 10px 5px; width: 400px; font-size: 12px; padding: 6px;}
+    input {border: 1px solid #333;margin: 10px 0px; width: 400px; font-size: 12px; padding-bottom: 6px;}
     .tHeader {padding: 8px; cursor: pointer; text-align: left;}
     .photo {display: inline-block; float: left; width: 100px;}
     #photogrid {overflow: auto;}
@@ -27,12 +27,10 @@
       <input id="fullTableFilter" type="text" placeholder="Rechercher par canton, nom ou nuance politique..."></input>
     <div id="fullTable"></div>
     
+   
+
+    
 </div>
-   <script id="nuance" type="text/html">
-    {{#rows}}
-      <span href="#" class="tag sml-button">{{.}}</span>
-    {{/rows}}
-  </script>
 
 <script id="fullTable_template" type="text/html">
   <table>
@@ -47,7 +45,7 @@
   <table>
     <tr><th class="tHeader">canton</th><th class="tHeader">binome</th><th class="tHeader">nuance</th></tr>
       {{#rows}}
-        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{#nuance}}<a href="#">{{nuance}}</a> {{/nuance}}</td></tr>
+        <tr><td>{{canton}}</td><td>{{binome}}</td><td>{{nuance}}</td></tr>
       {{/rows}}
   </table>
 </script>
@@ -59,26 +57,11 @@
     var URL = "0Ai7ATUDecTlvdEJTb1k4bEVBMkR4Z2V5dXJaTXk3c3c"
     Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
   })
-
   function showInfo(data) {
-    
-     var gData = separateTags(data)
-      drawTags(gData)
-      cleanDates(gData)
-      pageTitle(gData)
-      Sheetsee.makeTable(gData.reverse(), "#articleTable")
-      Sheetsee.initiateTableFilter(gData, "#articleSearch", "#articleTable")
-
-      $(document).on("click", ".tag", function(event){
-        var tag = $(event.target).text()
-        var tagFilter = getTagMatches(gData, tag)
-        Sheetsee.makeTable(tagFilter.reverse(), "#articleTable")
-    
     var tableOptions = {"data": data
-    , "pagination": 18, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter", }
+    , "pagination": 18, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter"}
     Sheetsee.makeTable(tableOptions)
     Sheetsee.initiateTableFilter(tableOptions)
-
     var california = Sheetsee.getKeyword(data, "california")
     var calOptions = { "data": california,
                        "pagination": 5,
@@ -87,17 +70,9 @@
                      }
     Sheetsee.makeTable(calOptions)
     Sheetsee.initiateTableFilter(calOptions)
-
     var html = Sheetsee.ich.photogrid({'rows': data})
     $('#photogrid').html(html)
-    
-     $(document).on("click", ".nuance", function(event){
-        var tag = $(event.target).text()
-        var tagFilter = getTagMatches(gData, nuance)
-        Sheetsee.makeTable(tagFilter.reverse(), "#articleTable")
   }
-
-
 </script>
 
 </body>
